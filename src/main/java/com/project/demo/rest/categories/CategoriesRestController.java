@@ -89,7 +89,7 @@ public class CategoriesRestController {
             );
         }
     }
-    
+
     @DeleteMapping("/{categoriesId}")
     @PreAuthorize("hasRole('SUPER_ADMIN') and isAuthenticated()")
     public ResponseEntity<?> deleteCategory(@PathVariable Long categoriesId,
