@@ -34,16 +34,16 @@ public class OrderRestController {
             @RequestParam(defaultValue = "10") int size,
             HttpServletRequest request) {
 
-            Pageable pageable = PageRequest.of(page-1, size);
-            Page<Order> ordersPage = orderRepository.findAll(pageable);
-            Meta meta = new Meta(request.getMethod(), request.getRequestURL().toString());
-            meta.setTotalPages(ordersPage.getTotalPages());
-            meta.setTotalElements(ordersPage.getTotalElements());
-            meta.setPageNumber(ordersPage.getNumber() + 1);
-            meta.setPageSize(ordersPage.getSize());
+        Pageable pageable = PageRequest.of(page-1, size);
+        Page<Order> ordersPage = orderRepository.findAll(pageable);
+        Meta meta = new Meta(request.getMethod(), request.getRequestURL().toString());
+        meta.setTotalPages(ordersPage.getTotalPages());
+        meta.setTotalElements(ordersPage.getTotalElements());
+        meta.setPageNumber(ordersPage.getNumber() + 1);
+        meta.setPageSize(ordersPage.getSize());
 
-            return new GlobalResponseHandler().handleResponse("Order retrieved successfully",
-                    ordersPage.getContent(), HttpStatus.OK, meta);
+        return new GlobalResponseHandler().handleResponse("Order retrieved successfully",
+                ordersPage.getContent(), HttpStatus.OK, meta);
     }
 
     @GetMapping("/user/{userId}/orders")

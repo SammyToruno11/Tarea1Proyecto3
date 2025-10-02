@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.demo.logic.entity.user.User;
 import jakarta.persistence.*;
 
-@Table(name = "`order`")
+@Table(name = "orders")
 @Entity
 public class Order {
     @Id

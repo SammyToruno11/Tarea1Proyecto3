@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-@Table(name = "user")
+@Table(name = "user_crud1")
 @Entity
 public class User implements UserDetails {
     @Id
@@ -47,9 +47,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Order> orders;
 
-    // Constructors
-    public User() {}
 
+    public User() {}
 
     @Override
     public boolean isAccountNonExpired() {
